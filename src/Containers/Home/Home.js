@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import Users from '../../Components/Users/Users'
+import Cards from '../../Components/Cards/Cards'
 
 class Home extends Component {
   state = {
@@ -31,7 +31,7 @@ class Home extends Component {
 
     if (this.state.users) {
       if (this.state.users.length) {
-        users = <Users users={this.state.users} />
+        users = <Cards data={this.state.users} />
       } else {
         users = <p>No user was found!</p>
       }
