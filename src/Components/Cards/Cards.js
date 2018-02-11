@@ -1,8 +1,9 @@
 import React from 'react'
+import styles from './Cards.css'
 import Card from './Card/Card'
 
 const cards = (props) => (
-  <ul>
+  <ul className={styles.Cards}>
     {
       props.data.map((content) => {
         return (
