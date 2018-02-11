@@ -8,7 +8,7 @@ class News extends Component {
   state = {
     news: null,
     hasError: false,
-    country_names_list: null,
+    country_names_list: [],
     country_name: null,
     country_code: null,
     isLoading: false
