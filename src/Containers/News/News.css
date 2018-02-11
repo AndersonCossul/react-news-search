@@ -1,0 +1,12 @@
+.News form {
+  margin-top: 20px
+}
+
+.News form input {
+  border-radius: 25px;
+  padding: 5px 10px;
+  border: 1px solid #eee;
+  text-align: center;
+  outline: none;
+  color: #585858;
+}

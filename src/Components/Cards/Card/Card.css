@@ -1,5 +1,5 @@
 .Card {
-  width: 60%;
+  width: 80%;
   border-top: 1px solid #eee;
   margin: 50px auto;
   padding-top: 10px;
@@ -18,7 +18,7 @@
 .Card .Info img {
   max-width: 100%;
   margin-left: 50%;
-  transform: translateX(-50%); 
+  transform: translateX(-50%);
 }
 
 .Card .Info small {
