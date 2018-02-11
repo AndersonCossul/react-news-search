@@ -46,7 +46,6 @@ class AutoCompleteInput extends Component {
         onChange={e => this.setState({ value: e.target.value })}
         onSelect={value => this.handleChange(value)}
         style={{width: this.props.width_limit}}
-        menuStyle={menuStyle}
         inputProps={inputProps}/>
     )
   }
