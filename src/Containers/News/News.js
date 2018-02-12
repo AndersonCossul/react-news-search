@@ -49,7 +49,7 @@ class News extends Component {
       })
     })
     .catch((error) => {
-      alert('Couldn\'t understand country.')
+      alert('País não identificado.')
       this.setState({isLoading: false})
     })
   }
