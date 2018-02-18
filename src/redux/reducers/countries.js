@@ -1,7 +1,7 @@
 import * as actions from '../actions/types'
 
 const initialState = {
-  selected_autocomplete_country: null
+  selectedAutocompleteCountry: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -16,7 +16,7 @@ const reducer = (state = initialState, action) => {
 const setSelectedAutocompleteCountry = (state, action) => {
   return {
     ...state,
-    selected_autocomplete_country: action.country
+    selectedAutocompleteCountry: action.country
   }
 }
 

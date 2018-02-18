@@ -12,35 +12,12 @@ class News extends Component {
   }
 
   getNews () {
-    // const { country_code } = this.state
-    // axios.get('https://newsapi.org/v2/top-headlines?country=' + country_code + '&apiKey=a5e1edfa15894f9584c5d6e1d305851e')
-    // .then((response) => {
-    //   const formattedNews = response.data.articles.map((article, index) => {
-    //     return {
-    //       id: index,
-    //       title: article.title,
-    //       author: article.author,
-    //       image: article.urlToImage,
-    //       url: article.url,
-    //       source: article.source.name,
-    //       date: article.publishedAt
-    //     }
-    //   })
-    //   this.setState({
-    //     news: formattedNews,
-    //     isLoading: false
-    //   })
-    // })
-    // .catch((error) => {
-    //   this.setState({
-    //     hasError: true,
-    //     isLoading: false
-    //   })
-    // })
+    
   }
 
   countrySelectedHandler = (country) => {
     this.props.updateSelectedCountry(country)
+    this.props.fetchNews(country)
   }
 
   render () {
@@ -80,7 +57,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateSelectedCountry: (country) => dispatch(actions.updateSelectedCountry(country))
+    updateSelectedCountry: (country) => dispatch(actions.updateSelectedCountry(country)),
+    fetchNews: (country) => dispatch(actions.fetchNews(country))
   }
 }
 
