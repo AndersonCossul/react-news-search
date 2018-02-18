@@ -34,7 +34,6 @@ class News extends Component {
       news = <p>{this.props.error}</p>
     }
 
-
     return (
       <div>
         <AutoCompleteInput
