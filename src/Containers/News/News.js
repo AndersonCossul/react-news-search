@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import * as actions from '../../redux/actions/index'
 import axios from 'axios'
 import AutoCompleteInput from '../../Components/IO/AutoCompleteInput'
 import Cards from '../../Components/Cards/Cards'
@@ -8,27 +10,13 @@ class News extends Component {
   state = {
     news: null,
     hasError: false,
-    country_names_list: [],
     country_name: null,
     country_code: null,
     isLoading: false
   }
 
   componentDidMount () {
-    this.getCountryNames()
-  }
-
-  getCountryNames () {
-    axios.get('https://restcountries.eu/rest/v2/all')
-      .then((response) => {
-        const formattedList = response.data.map((country, index) => {
-          return {
-            id: index,
-            name: country.name
-          }
-        })
-        this.setState({country_names_list: formattedList})
-      })
+    this.props.fetchAutocompleteCountries()
   }
 
   onAutoCompleteInputSelectChanged = (selectedCountryName) => {
@@ -105,7 +93,7 @@ class News extends Component {
       <div className={styles.News}>
         <form onSubmit={(e) => e.preventDefault()}>
           <AutoCompleteInput
-            items={this.state.country_names_list}
+            items={this.props.autocomplete_contries}
             onSelect={this.onAutoCompleteInputSelectChanged}
             width_limit="100px"
             placeholder="Type a Country"/>
@@ -116,4 +104,16 @@ class News extends Component {
   }
 }
 
-export default News
+const mapStateToProps = state => {
+  return {
+    autocomplete_contries: state.countries.autocomplete_contries
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchAutocompleteCountries: () => dispatch(actions.fetchAutocompleteCountries())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(News)

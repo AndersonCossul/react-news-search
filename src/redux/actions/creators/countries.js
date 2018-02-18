@@ -1,7 +1,7 @@
 import * as actions from '../actions'
 import axios from 'axios'
 
-export const fetchCountries = () => {
+export const fetchAutocompleteCountries = () => {
   return dispatch => {
     axios.get('https://restcountries.eu/rest/v2/all')
       .then((response) => {
@@ -11,24 +11,24 @@ export const fetchCountries = () => {
             name: country.name
           }
         })
-        dispatch(fetchCountriesSuccess(formattedList))
+        dispatch(fetchAutocompleteCountriesSuccess(formattedList))
       })
       .catch(error => {
-        dispatch(fecthCountriesError(error))
+        dispatch(fetchAutocompleteCountriesError(error))
       })
   }
 }
 
-export const fetchCountriesSuccess = autocomplete_countries => {
+export const fetchAutocompleteCountriesSuccess = autocomplete_countries => {
   return {
-    type: actions.FETCH_COUNTRIES_SUCCESS,
+    type: actions.FETCH_AUTOCOMPLETE_COUNTRIES_SUCCESS,
     autocomplete_countries: autocomplete_countries
   }
 }
 
-export const fecthCountriesError = error => {
+export const fetchAutocompleteCountriesError = error => {
   return {
-    type: actions.FETCH_COUNTRIES_FAIL,
+    type: actions.FETCH_AUTOCOMPLETE_COUNTRIES_FAIL,
     error: error
   }
 }
