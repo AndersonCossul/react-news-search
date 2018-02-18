@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import * as actions from '../../redux/actions/actions'
 import AutoCompleteInput from '../../Components/IO/AutoCompleteInput'
 import Cards from '../../Components/Cards/Cards'
-import styles from './News.css'
 
 class News extends Component {
   state = {
@@ -60,12 +59,10 @@ class News extends Component {
     }
 
     return (
-      <div className={styles.News}>
-        <form onSubmit={(e) => e.preventDefault()}>
-          <AutoCompleteInput
-            onSelect={this.props.setSelectedAutocompleteCountry}
-            placeholder="Type a Country"/>
-        </form>
+      <div>
+        <AutoCompleteInput
+          onSelect={this.props.setSelectedAutocompleteCountry}
+          placeholder="Type a Country"/>
         {news}
       </div>
     )
