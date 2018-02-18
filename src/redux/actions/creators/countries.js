@@ -1,4 +1,4 @@
-import * as actions from '../actions'
+import * as actions from '../types'
 import axios from 'axios'
 
 export const fetchAutocompleteCountries = () => {
@@ -8,7 +8,8 @@ export const fetchAutocompleteCountries = () => {
         const formattedList = response.data.map((country, index) => {
           return {
             id: index,
-            name: country.name
+            name: country.name,
+            code: country.alpha2Code
           }
         })
         dispatch(fetchAutocompleteCountriesSuccess(formattedList))
@@ -35,7 +36,7 @@ export const fetchAutocompleteCountriesError = error => {
 
 export const setSelectedAutocompleteCountryName = country => {
   return {
-    type: actions.SET_SELECTED_AUTOCOMPLETE_COUNTRY_NAME,
+    type: actions.SET_SELECTED_AUTOCOMPLETE_COUNTRY,
     country: country
   }
 }

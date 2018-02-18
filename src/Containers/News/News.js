@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import * as actions from '../../redux/actions/index'
+import * as actions from '../../redux/actions/actions'
 import axios from 'axios'
 import AutoCompleteInput from '../../Components/IO/AutoCompleteInput'
 import Cards from '../../Components/Cards/Cards'

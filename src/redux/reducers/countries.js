@@ -1,9 +1,8 @@
-import * as actions from '../actions/actions'
+import * as actions from '../actions/types'
 
 const initialState = {
   autocomplete_countries: [],
-  selected_autocomplete_country_name: null,
-  selected_autocomplete_country_code: null,
+  selected_autocomplete_country: null,
   error: null
 }
 
@@ -13,8 +12,8 @@ const reducer = (state = initialState, action) => {
       return fetchAutocompleteCountriesSuccess(state, action)
     case actions.FETCH_AUTOCOMPLETE_COUNTRIES_FAIL:
       return fetchAutocompleteCountriesFail(state, action)
-    case actions.SET_SELECTED_AUTOCOMPLETE_COUNTRY_NAME:
-      return setSelectedAutocompleteCountryName(state, action)
+    case actions.SET_SELECTED_AUTOCOMPLETE_COUNTRY:
+      return setSelectedAutocompleteCountry(state, action)
     default:
       return state
   }
@@ -34,10 +33,10 @@ const fetchAutocompleteCountriesFail = (state, action) => {
   }
 }
 
-const setSelectedAutocompleteCountryName = (state, action) => {
+const setSelectedAutocompleteCountry = (state, action) => {
   return {
     ...state,
-    selected_autocomplete_country_name: action.country
+    selected_autocomplete_country: action.country
   }
 }
 

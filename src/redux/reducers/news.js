@@ -1,4 +1,4 @@
-import * as actions from '../action/actions'
+import * as actions from '../action/types'
 
 const initialState = {
   news: null,
