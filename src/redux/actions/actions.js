@@ -1,3 +1,1 @@
-export {
-  setSelectedAutocompleteCountry
-} from './creators/countries'
+export { updateSelectedCountry } from './creators/countries'

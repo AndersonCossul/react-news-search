@@ -39,6 +39,10 @@ class News extends Component {
     // })
   }
 
+  countrySelectedHandler = (country) => {
+    this.props.updateSelectedCountry(country)
+  }
+
   render () {
     let news = null
 
@@ -61,7 +65,7 @@ class News extends Component {
     return (
       <div>
         <AutoCompleteInput
-          onSelect={this.props.setSelectedAutocompleteCountry}
+          onSelect={this.countrySelectedHandler}
           placeholder="Type a Country"/>
         {news}
       </div>
@@ -76,7 +80,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setSelectedAutocompleteCountry: (country) => dispatch(actions.setSelectedAutocompleteCountry(country))
+    updateSelectedCountry: (country) => dispatch(actions.updateSelectedCountry(country))
   }
 }
 
