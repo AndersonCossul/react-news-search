@@ -1,4 +1,3 @@
 export {
-  fetchAutocompleteCountries,
-  setSelectedAutocompleteCountryName
+  setSelectedAutocompleteCountry
 } from './creators/countries'
