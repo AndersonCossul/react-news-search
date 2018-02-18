@@ -32,3 +32,10 @@ export const fetchAutocompleteCountriesError = error => {
     error: error
   }
 }
+
+export const setSelectedAutocompleteCountry = country => {
+  return {
+    type: actions.SET_SELECTED_AUTOCOMPLETE_COUNTRY,
+    country: country
+  }
+}
