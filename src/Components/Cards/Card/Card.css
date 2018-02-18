@@ -9,6 +9,10 @@
   text-align: left;
 }
 
+.Card:first-of-type {
+  margin-top: 20px;
+}
+
 @media(min-width: 800px) {
   .Card {
     width: 580px;

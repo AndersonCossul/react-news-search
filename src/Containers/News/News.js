@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../../redux/actions/actions'
-import AutoCompleteInput from '../../Components/IO/AutoCompleteInput'
-import Cards from '../../Components/Cards/Cards'
+import AutoCompleteInput from '../../components/IO/AutoCompleteInput'
+import Cards from '../../components/Cards/Cards'
 
 class News extends Component {
   countrySelectedHandler = (country) => {
@@ -10,14 +10,19 @@ class News extends Component {
     this.props.fetchNews(country)
   }
 
-  render () {
+  render() {
     let news = null
 
     if (this.props.news) {
       if (this.props.news.length) {
-        news = <Cards data={this.props.news} />
+        news = (
+          <main>
+            <h1>{this.props.country.name}</h1>
+            <Cards data={this.props.news} />
+          </main>
+        )
       } else {
-        news = <p>No articles found for {this.state.country.name}</p>
+        news = <p>No articles found for {this.props.country.name}.</p>
       }
     }
 
@@ -34,7 +39,7 @@ class News extends Component {
       <div>
         <AutoCompleteInput
           onSelect={this.countrySelectedHandler}
-          placeholder="Type a Country"/>
+          placeholder="Type a Country" />
         {news}
       </div>
     )

@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Card.css'
+import newPlaceholder from '../../../assets/images/new-placeholder.jpg'
 
 const card = (props) => {
   const date = new Date(props.data.date)
@@ -7,7 +8,7 @@ const card = (props) => {
 
   let image = (
     <img
-      src="http://tutaki.org.nz/wp-content/uploads/2016/04/no-image-available.png"
+      src={newPlaceholder}
       alt={props.data.title}/>
   )
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import News from './Containers/News/News'
+import News from './containers/News/News'
 import styles from './App.css'
 
 class App extends Component {
