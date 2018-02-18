@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
+import multi from 'redux-multi'
 import thunk from 'redux-thunk'
 import countriesReducer from './reducers/countries'
 
@@ -11,7 +12,7 @@ const rootStore = combineReducers({
 const store = createStore(
   rootStore,
   composeEnhancers(
-    applyMiddleware(thunk)
+    applyMiddleware(thunk, multi)
   )
 )
 

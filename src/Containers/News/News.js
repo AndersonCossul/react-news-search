@@ -19,8 +19,8 @@ class News extends Component {
     this.props.fetchAutocompleteCountries()
   }
 
-  onSetSelectedAutocompleteCountry = (country) => {
-    this.props.setSelectedAutocompleteCountry(country)
+  onSetSelectedAutocompleteCountryName = (country) => {
+    this.props.setSelectedAutocompleteCountryName(country)
   }
 
   getCountryByName () {
@@ -88,7 +88,7 @@ class News extends Component {
         <form onSubmit={(e) => e.preventDefault()}>
           <AutoCompleteInput
             items={this.props.autocomplete_countries}
-            onSelect={this.onSetSelectedAutocompleteCountry}
+            onSelect={this.onSetSelectedAutocompleteCountryName}
             width_limit="100px"
             placeholder="Type a Country"/>
         </form>
@@ -107,7 +107,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchAutocompleteCountries: () => dispatch(actions.fetchAutocompleteCountries()),
-    setSelectedAutocompleteCountry: (country) => dispatch(actions.setSelectedAutocompleteCountry(country))
+    setSelectedAutocompleteCountryName: (country) => dispatch(actions.setSelectedAutocompleteCountryName(country))
   }
 }
 
