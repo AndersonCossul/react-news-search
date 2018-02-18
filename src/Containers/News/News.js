@@ -93,7 +93,7 @@ class News extends Component {
       <div className={styles.News}>
         <form onSubmit={(e) => e.preventDefault()}>
           <AutoCompleteInput
-            items={this.props.autocomplete_contries}
+            items={this.props.autocomplete_countries}
             onSelect={this.onAutoCompleteInputSelectChanged}
             width_limit="100px"
             placeholder="Type a Country"/>
@@ -106,7 +106,7 @@ class News extends Component {
 
 const mapStateToProps = state => {
   return {
-    autocomplete_contries: state.countries.autocomplete_contries
+    autocomplete_countries: state.countries.autocomplete_countries
   }
 }
 

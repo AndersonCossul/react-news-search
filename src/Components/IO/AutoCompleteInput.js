@@ -38,7 +38,7 @@ class AutoCompleteInput extends Component {
         renderItem={(item, highlighted) =>
           <div
             key={item.id}
-            style={{backgroundColor: (highlighted ? '#eee' : '#fff')}}>
+            style={{backgroundColor: (highlighted ? '#eee' : '#fff'), cursor: 'pointer'}}>
             {item.name}
           </div>
         }
