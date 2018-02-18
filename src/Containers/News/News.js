@@ -5,16 +5,6 @@ import AutoCompleteInput from '../../Components/IO/AutoCompleteInput'
 import Cards from '../../Components/Cards/Cards'
 
 class News extends Component {
-  state = {
-    news: null,
-    hasError: false,
-    isLoading: false
-  }
-
-  getNews () {
-    
-  }
-
   countrySelectedHandler = (country) => {
     this.props.updateSelectedCountry(country)
     this.props.fetchNews(country)
@@ -23,21 +13,22 @@ class News extends Component {
   render () {
     let news = null
 
-    if (this.state.hasError) {
-      news = <p>There was an error when getting the news.</p>
+    if (this.props.news) {
+      if (this.props.news.length) {
+        news = <Cards data={this.props.news} />
+      } else {
+        news = <p>No articles found for {this.state.country.name}</p>
+      }
     }
 
-    if (this.state.isLoading) {
+    if (this.props.loading) {
       news = <p>Loading...</p>
     }
 
-    if (this.state.news) {
-      if (this.state.news.length) {
-        news = <Cards data={this.state.news} />
-      } else {
-        news = <p>No articles found for {this.state.country_name}</p>
-      }
+    if (this.props.error) {
+      news = <p>{this.props.error}</p>
     }
+
 
     return (
       <div>
@@ -52,6 +43,10 @@ class News extends Component {
 
 const mapStateToProps = state => {
   return {
+    news: state.news.news,
+    loading: state.news.loading,
+    error: state.news.error,
+    country: state.countries.selectedAutocompleteCountry
   }
 }
 
