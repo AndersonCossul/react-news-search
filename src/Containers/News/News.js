@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import classes from './News.css'
 import { connect } from 'react-redux'
 import * as actions from '../../redux/actions/actions'
 import AutoCompleteInput from '../../components/IO/AutoCompleteInput'
 import Cards from '../../components/Cards/Cards'
 
-class News extends Component {
+export class News extends Component {
+
   countrySelectedHandler = (country) => {
     this.props.updateSelectedCountry(country)
     this.props.fetchNews(country)
@@ -17,7 +19,11 @@ class News extends Component {
       if (this.props.news.length) {
         news = (
           <main>
-            <h1>{this.props.country.name}</h1>
+            {
+              this.props.country
+              ? <h1 className={classes.Title}>{this.props.country.name}</h1>
+              : null
+            }
             <Cards data={this.props.news} />
           </main>
         )
