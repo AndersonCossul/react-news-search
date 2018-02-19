@@ -21,8 +21,8 @@ export class News extends Component {
           <main>
             {
               this.props.country
-              ? <h1 className={classes.Title}>{this.props.country.name}</h1>
-              : null
+                ? <h1 className={classes.Title}>{this.props.country.name}</h1>
+                : null
             }
             <Cards data={this.props.news} />
           </main>
@@ -42,9 +42,7 @@ export class News extends Component {
 
     return (
       <div>
-        <AutoCompleteInput
-          onSelect={this.countrySelectedHandler}
-          placeholder="Type a Country" />
+        <AutoCompleteInput onSelect={this.countrySelectedHandler} />
         {news}
       </div>
     )
@@ -60,11 +58,7 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    updateSelectedCountry: (country) => dispatch(actions.updateSelectedCountry(country)),
-    fetchNews: (country) => dispatch(actions.fetchNews(country))
-  }
-}
+const { updateSelectedCountry, fetchNews } = actions
+const mapDispatchToProps = { updateSelectedCountry, fetchNews }
 
 export default connect(mapStateToProps, mapDispatchToProps)(News)
